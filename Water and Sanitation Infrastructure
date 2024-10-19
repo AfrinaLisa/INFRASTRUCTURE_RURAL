@@ -1,0 +1,14 @@
+import random
+
+# Simulated water quality data
+water_data = {
+    'pH': random.uniform(6.0, 8.0),
+    'turbidity': random.uniform(0, 5),  # Turbidity in NTU (Nephelometric Turbidity Units)
+    'contaminants': random.uniform(0, 100),  # Contaminants in ppm (parts per million)
+}
+
+# Check if water quality is within safe limits
+if 6.5 <= water_data['pH'] <= 8.5 and water_data['turbidity'] <= 1 and water_data['contaminants'] <= 50:
+    print("Water quality is safe for consumption.")
+else:
+    print("Water quality is not safe. Further treatment required.")
