@@ -1,0 +1,19 @@
+import pandas as pd
+
+# Example solar radiation data (in kWh/m^2/day)
+solar_data = pd.DataFrame({
+    'day': [1, 2, 3, 4, 5],
+    'solar_radiation': [5.5, 6.2, 5.8, 6.1, 5.9]
+})
+
+# Average energy generated per solar panel (based on panel efficiency)
+panel_efficiency = 0.15
+panel_area = 1.6  # m^2
+
+# Calculate potential energy generation per day
+solar_data['energy_generated_kWh'] = solar_data['solar_radiation'] * panel_efficiency * panel_area
+
+# Total potential energy generation over the period
+total_energy = solar_data['energy_generated_kWh'].sum()
+
+print(f"Total potential energy generation: {total_energy} kWh")
