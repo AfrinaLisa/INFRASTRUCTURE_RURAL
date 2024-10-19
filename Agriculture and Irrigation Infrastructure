@@ -1,0 +1,12 @@
+import requests
+
+# Example API call to retrieve weather forecast (replace with a real API key)
+response = requests.get('http://api.weatherapi.com/v1/forecast.json?key=YOUR_API_KEY&q=RuralArea&days=3')
+weather_data = response.json()
+
+# Simplified logic to determine if irrigation is needed
+rain_chance = weather_data['forecast']['forecastday'][0]['day']['daily_chance_of_rain']
+if rain_chance < 30:
+    print("Irrigation needed: Water the crops today.")
+else:
+    print("Rain is expected: No irrigation needed.")
