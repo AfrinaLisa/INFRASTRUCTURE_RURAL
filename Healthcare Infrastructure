@@ -1,0 +1,19 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/consult', methods=['POST'])
+def consult():
+    data = request.json
+    symptoms = data.get('symptoms')
+    
+    # Example consultation logic based on symptoms
+    if "fever" in symptoms:
+        diagnosis = "Likely flu or infection. Advise bed rest and fluids."
+    else:
+        diagnosis = "Consult with a doctor for a detailed diagnosis."
+
+    return jsonify({'diagnosis': diagnosis})
+
+if __name__ == '__main__':
+    app.run(debug=True)
