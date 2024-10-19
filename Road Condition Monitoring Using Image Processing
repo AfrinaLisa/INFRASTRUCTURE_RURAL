@@ -1,0 +1,16 @@
+import cv2
+import numpy as np
+
+# Load a sample image of a rural road
+road_image = cv2.imread('road_image.jpg')
+
+# Convert image to grayscale
+gray = cv2.cvtColor(road_image, cv2.COLOR_BGR2GRAY)
+
+# Use Canny edge detection to detect cracks or damages in the road
+edges = cv2.Canny(gray, 50, 150)
+
+# Show detected edges (representing cracks or poor road conditions)
+cv2.imshow('Edges', edges)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
